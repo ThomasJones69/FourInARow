@@ -31,10 +31,11 @@ function makingTheBoard()
             circle.style.left = leftPosition + 'px';
         }
     }
-    gameBoardContainer.addEventListener("click", shooting);
+    gameBoardContainer.addEventListener("click", redshooting, true);
+   
 }
 
-function shooting(e)
+function redshooting(e)
 {
     if (e.target !== e.currentTarget)
     {
@@ -45,8 +46,28 @@ function shooting(e)
 
         if (mainBoardArray[row][col] == 0 )
         {
+            
             e.target.style.background = 'red';
-            mainBoardArray[row][col] = 1;
+            mainBoardArray[row][col] = 1;  
+            
+            
+        } 
+    }
+    e.stopPropagation();
+}
+function yellowshooting(e)
+{
+    if (e.target !== e.currentTarget)
+    {
+
+        //get postion in the array using the id of the element
+        var row = e.target.id.substring(1, 2);
+        var col = e.target.id.substring(2, 3);
+
+        if (mainBoardArray[row][col] == 0 )
+        {
+            e.target.style.background = 'yellow';
+            mainBoardArray[row][col] = 2;
         } 
     }
     e.stopPropagation();
