@@ -46,28 +46,19 @@ function redshooting(e)
 
         if (mainBoardArray[row][col] == 0 )
         {
-            
+            if(counter % 2 == 0)
+            {
+            counter++;
             e.target.style.background = 'red';
             mainBoardArray[row][col] = 1;  
-            
-            
-        } 
-    }
-    e.stopPropagation();
-}
-function yellowshooting(e)
-{
-    if (e.target !== e.currentTarget)
-    {
-
-        //get postion in the array using the id of the element
-        var row = e.target.id.substring(1, 2);
-        var col = e.target.id.substring(2, 3);
-
-        if (mainBoardArray[row][col] == 0 )
-        {
+             }else{
+                 
+            counter++;
             e.target.style.background = 'yellow';
-            mainBoardArray[row][col] = 2;
+            mainBoardArray[row][col] = 2; 
+              }
+            
+            
         } 
     }
     e.stopPropagation();
