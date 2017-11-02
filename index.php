@@ -4,10 +4,11 @@
         <script src="javascriptbehavior.js"></script>
         <link rel="stylesheet" href="StylingCascadeStyleSheet.css">        
     </head>
-    <body>
-        <p onclick="test()">hello World</p>
+    <body onload="makingTheBoard()">
+        <h1>Vier Op Een Rij</h1>
+        <div id="mainboard"></div>
         <?php
-        // put your code here
+        
         ?>
     </body>
 </html>
