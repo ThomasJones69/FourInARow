@@ -2,10 +2,8 @@ var counter = 0;
 var rows = 6;
 var cols = 7;
 var circleSize = 50;
-var circle = null;
-var gameBoardContainer = document.getElementById("mainboard");
 var mainBoardArray = [
-    [1, 0, 1, 0, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
@@ -21,7 +19,7 @@ function makingTheBoard()
         for (j = 0; j < rows; j++)
         {
             //Creating the circles
-            
+
             circle = document.createElement("div");
             gameBoardContainer.appendChild(circle);
             circle.id = 'c' + j + i;
@@ -33,4 +31,23 @@ function makingTheBoard()
             circle.style.left = leftPosition + 'px';
         }
     }
+    gameBoardContainer.addEventListener("click", shooting);
+}
+
+function shooting(e)
+{
+    if (e.target !== e.currentTarget)
+    {
+
+        //get postion in the array using the id of the element
+        var row = e.target.id.substring(1, 2);
+        var col = e.target.id.substring(2, 3);
+
+        if (mainBoardArray[row][col] == 0 )
+        {
+            e.target.style.background = 'red';
+            mainBoardArray[row][col] = 1;
+        } 
+    }
+    e.stopPropagation();
 }
